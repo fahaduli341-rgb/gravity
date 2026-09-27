@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Site configuration and editable content
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if (request.auth != null && request.auth.token.email.lower() == 'fahaduli341@gmail.com')
+                   || (request.resource.data.secretKey == 'fahad2026');
+    }
+
+    // Inquiries submitted by prospective clients
+    match /inquiries/{inquiryId} {
+      allow create: if request.resource.data.name is string &&
+                    request.resource.data.email is string &&
+                    request.resource.data.name.size() > 0 &&
+                    request.resource.data.email.size() > 0;
+      allow read, delete: if (request.auth != null && request.auth.token.email.lower() == 'fahaduli341@gmail.com')
+                          || request.auth != null;
+      allow update: if false;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "settings": {
+      "title": "Site Settings & Content",
+      "description": "Dynamic configuration for portfolio texts, WhatsApp integration, and portrait image",
+      "type": "object",
+      "properties": {
+        "heroTitle": {
+          "type": "string",
+          "description": "Hero greeting headline"
+        },
+        "heroSubtitle": {
+          "type": "string",
+          "description": "Hero professional title"
+        },
+        "heroTags": {
+          "type": "string",
+          "description": "Kicker category tags separated by bullets"
+        },
+        "badgeText": {
+          "type": "string",
+          "description": "Availability status badge text"
+        },
+        "whatsappNumber": {
+          "type": "string",
+          "description": "WhatsApp contact number with country code"
+        },
+        "whatsappMessage": {
+          "type": "string",
+          "description": "Default pre-filled WhatsApp message"
+        },
+        "manifestHeading": {
+          "type": "string",
+          "description": "Manifesto headline"
+        },
+        "manifestParagraph1": {
+          "type": "string",
+          "description": "First paragraph of the manifesto"
+        },
+        "manifestParagraph2": {
+          "type": "string",
+          "description": "Second paragraph of the manifesto"
+        },
+        "manifestParagraph3": {
+          "type": "string",
+          "description": "Third paragraph of the manifesto"
+        },
+        "manifestPunchline": {
+          "type": "string",
+          "description": "Highlight punchline text"
+        },
+        "manifestSubpunchline": {
+          "type": "string",
+          "description": "Sub-punchline description"
+        },
+        "customPortraitImage": {
+          "type": "string",
+          "description": "Base64 data URL or external URL of custom uploaded portrait"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last update ISO timestamp"
+        }
+      }
+    },
+    "inquiries": {
+      "title": "Client Inquiries",
+      "description": "Messages and project leads submitted from the Hire Me modal",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Client name"
+        },
+        "email": {
+          "type": "string",
+          "description": "Client email address"
+        },
+        "service": {
+          "type": "string",
+          "description": "Website type or service requested"
+        },
+        "message": {
+          "type": "string",
+          "description": "Brief description of project requirements"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Submission ISO timestamp"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the inquiry (e.g. new, reviewed, contacted)"
+        }
+      },
+      "required": ["name", "email", "createdAt"]
+    }
+  }
+}
