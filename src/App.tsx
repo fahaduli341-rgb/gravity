@@ -13,10 +13,12 @@ import { Footer } from './components/Footer.tsx';
 import { ImpressumModal } from './components/ImpressumModal.tsx';
 import { AdminPanelModal } from './components/AdminPanelModal.tsx';
 import { SecretAdminTrigger } from './components/SecretAdminTrigger.tsx';
+import { IntroSplash } from './components/IntroSplash.tsx';
 import { Language, SiteSettings, DEFAULT_SETTINGS } from './types.ts';
 import { gravityAudio } from './utils/audio.ts';
 
 export default function App() {
+  const [showIntro, setShowIntro] = useState<boolean>(true);
   const [language, setLanguage] = useState<Language>('en');
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [isImpressumOpen, setIsImpressumOpen] = useState(false);
@@ -164,6 +166,16 @@ export default function App() {
         onOpenImpressum={() => setIsImpressumOpen(true)}
         onOpenHire={handleHireMeWhatsApp}
       />
+
+      {/* Cinematic Fullscreen Intro Animation on Site Entry */}
+      {showIntro && (
+        <IntroSplash
+          ownerName={settings.heroTitle || 'FAHAD'}
+          roleTitle={settings.heroSubtitle || 'AI WEB DEVELOPER'}
+          customPortraitImage={settings.customPortraitImage}
+          onComplete={() => setShowIntro(false)}
+        />
+      )}
 
       {/* Secret Admin Trigger: Triple click at the bottom-right corner or Long Press */}
       <SecretAdminTrigger onTrigger={() => openAdminWithTab('photo')} />
